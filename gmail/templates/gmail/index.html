@@ -1,0 +1,11 @@
+{% extends 'gmail/layout.html' %}
+
+{% block body %}
+    <form action="{% url 'login' %}">
+        <button id="login"> Login</button>
+    </form>
+    <form action="{% url 'register' %}">
+        <button id="register"> Register </button>
+    </form>
+
+{% endblock %}

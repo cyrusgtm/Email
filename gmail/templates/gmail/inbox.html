@@ -1,0 +1,35 @@
+{% extends "gmail/layout.html" %}inbox">Inbox</
+{% load static %}
+
+
+
+{% block body %}
+    <h1> {{ request.user }}</h1>
+    <button id="inbox" data-page="inbox">Inbox</button>
+    <button id="compose" data-page="compose">Compose</button>
+    <button id="sent" data-page="sent">Sent</button>
+    <button id="archive" data-page="archive">Archive</button>
+    <button id="logout"><a href="{% url 'logout' %}">Logout</a></button>
+
+    <div id="emails-view">
+    </div>
+
+    <div id="email-detail-view"></div>
+
+    <div id="compose-view">
+        <h3> New Email</h3>
+        <form id="compose-form">
+            From: <input disabled value="{{ request.user.email }}"><br>
+            To: <input id="compose-recipients"><br>
+            <input id="compose-subject" placeholder="Subject"><br>
+            <textarea id="compose-body" placeholder="Body"></textarea><br>
+            <input type="submit", id="submit">
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'gmail/inbox.js' %}">
+</script>
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends 'gmail/layout.html' %}
+
+{% block body %}
+    <h2> Register </h2>
+    {% if message %}
+        <p> {{ message }} </p>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+        Email: <br>
+        <input type="text" placeholder="Email" name="email"><br>
+        Password: <br>
+        <input type="password" placeholder="Password" name="password"><br>
+        Confirm Password: <br>
+        <input type="password" placeholder="Confirm Password" name="confirm_password"><br>
+        <button type="submit">Register</button>
+    </form>
+
+    
+
+{% endblock %}
